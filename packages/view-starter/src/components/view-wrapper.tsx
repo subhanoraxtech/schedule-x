@@ -13,6 +13,9 @@ const resources: Resource[] = [
   { id: 'wendy', name: 'Wendy', color: '#f797d2', avatarColor: '#e91e63' },
   { id: 'amy', name: 'Amy', color: '#88f7f2', avatarColor: '#00bcd4' },
   { id: 'michael', name: 'Michael', color: '#f7bd88', avatarColor: '#ff5722' },
+  { id: 'david', name: 'David', color: '#88f7bd', avatarColor: '#4caf50' },
+  { id: 'sarah', name: 'Sarah', color: '#d788f7', avatarColor: '#9c27b0' },
+  { id: 'jessica', name: 'Jessica', color: '#f7f788', avatarColor: '#ffeb3b' },
 ];
 
 /**
@@ -24,7 +27,7 @@ const ResourceDayGrid = ({ $app, date }: { $app: any, date: string }) => {
 
   const startHour = 0;
   const endHour = 24; 
-  const hourHeight = 80;
+  const hourHeight = 180;
   const totalHeight = (endHour - startHour) * hourHeight;
   const hours = Array.from({ length: endHour - startHour }, (_, i) => i + startHour);
 
