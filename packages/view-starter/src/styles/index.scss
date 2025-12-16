@@ -6,7 +6,8 @@
   /* Take full height of parent */
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   font-family: 'Open Sans', sans-serif;
   background-color: white;
 
@@ -31,6 +32,7 @@
 
     .resource-header-cell {
       flex: 1;
+      min-width: 160px;
       padding: 15px 10px;
       display: flex;
       flex-direction: column;
@@ -101,6 +103,7 @@
 
     .resource-column {
       flex: 1;
+      min-width: 160px;
       border-right: 1px solid #e0e0e0;
       position: relative;
       background-color: #fafafa;
@@ -211,7 +214,7 @@
       border-bottom: 1px solid #e0e0e0;
       flex: 1;
       /* Distribute available height among rows evenly */
-      min-height: 100px;
+      min-height: 180px;
       /* But keep a reasonable min */
 
       &:last-child {

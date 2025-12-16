@@ -18,7 +18,7 @@ let teamDayView = createTeamDayView();
 let teamWeekView = createTeamWeekView();
 
 const calendar = createCalendar({
-  selectedDate: '2024-05-11',
+  selectedDate: new Date().toISOString().split('T')[0],
   calendars: {
     personal: {
       colorName: 'personal',
