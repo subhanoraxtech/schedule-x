@@ -1,3 +1,336 @@
-.view-starter {
-  color: #6750A4FF;
+.sx__resource-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  /* Take full height of parent */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+
+  .day-header {
+    z-index: 100;
+    position: relative;
+  }
+
+  .resource-header-row {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+    /* Header shouldn't shrink */
+    z-index: 100;
+    position: relative;
+
+    .time-header-cell {
+      width: 60px;
+      flex-shrink: 0;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .resource-header-cell {
+      flex: 1;
+      padding: 15px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      border-right: 1px solid #e0e0e0;
+      background-color: white;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border: 2px solid white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .name {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #333;
+      }
+    }
+  }
+
+  .resource-body {
+    display: flex;
+    flex: 1;
+    /* Expand to fill remaining space */
+    overflow-y: auto;
+    /* Scroll internally if content is too tall */
+    position: relative;
+    /* Removed max-height: 600px constraint */
+    padding-top: 20px;
+
+    .time-labels-column {
+      width: 60px;
+      flex-shrink: 0;
+      border-right: 1px solid #e0e0e0;
+      background-color: white;
+      min-height: 100%;
+      /* Ensure line goes to bottom */
+
+      .time-label {
+        font-size: 0.75rem;
+        color: #777;
+        text-align: right;
+        padding-right: 8px;
+        position: relative;
+
+        span {
+          position: absolute;
+          top: -6px;
+          /* Align with grid line */
+          right: 8px;
+        }
+      }
+    }
+
+    .resource-column {
+      flex: 1;
+      border-right: 1px solid #e0e0e0;
+      position: relative;
+      background-color: #fafafa;
+      min-height: 100%;
+      /* Ensure line goes to bottom */
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .grid-line {
+        border-top: 1px solid #eaeaea;
+        box-sizing: border-box;
+      }
+
+      .event-item {
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        padding: 5px 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        font-size: 0.8rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        color: #333;
+
+        .event-title {
+          font-weight: bold;
+          margin-bottom: 2px;
+        }
+
+        .event-time {
+          font-size: 0.7rem;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.sx__week-matrix {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  /* Take full height */
+  border: 1px solid #e0e0e0;
+  background-color: white;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .matrix-header-row {
+    display: flex;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+    z-index: 100;
+    position: relative;
+
+    .resource-sidebar-header {
+      width: 120px;
+      padding: 15px;
+      font-weight: bold;
+      border-right: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+    }
+
+    .day-header-cell {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      border-right: 1px solid #e0e0e0;
+      min-width: 100px;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .day-name {
+        font-size: 0.8rem;
+        color: #777;
+        text-transform: uppercase;
+      }
+
+      .day-number {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 4px;
+        color: #333;
+      }
+    }
+  }
+
+  .matrix-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Expand body */
+    overflow-y: auto;
+
+    .matrix-resource-row {
+      display: flex;
+      border-bottom: 1px solid #e0e0e0;
+      flex: 1;
+      /* Distribute available height among rows evenly */
+      min-height: 100px;
+      /* But keep a reasonable min */
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .resource-sidebar-cell {
+        width: 120px;
+        padding: 15px;
+        border-right: 1px solid #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: white;
+
+        .avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          font-size: 1.5rem;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: #333;
+        }
+      }
+
+      .matrix-cell {
+        flex: 1;
+        border-right: 1px solid #e0e0e0;
+        padding: 8px;
+        min-width: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background-color: #fafafa;
+        height: 100%;
+        /* Ensure cell takes full row height */
+
+        &:last-child {
+          border-right: none;
+        }
+
+        .matrix-event {
+          padding: 6px 8px;
+          border-radius: 4px;
+          font-size: 0.8rem;
+          color: #333;
+          font-weight: bold;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+    }
+  }
+}
+
+
+/* GLOBAL OVERRIDES - MUST BE AT ROOT */
+
+/* Ensure the top calendar header is above the content */
+.sx__calendar-header {
+  position: relative;
+  z-index: 1000 !important;
+}
+
+/* Force dropdowns to be on top of everything */
+.sx__view-selection__items,
+.sx__date-picker__popup,
+.sx__time-picker__popup,
+.sx__date-picker-popup {
+  z-index: 20000 !important;
+}
+
+.sx__view-selection__selected-item {
+  z-index: 20000 !important;
+}
+
+.sx__view-selection {
+  min-width: 150px;
+}
+
+.sx__view-selection__items {
+  width: 100%;
+  min-width: 150px;
+}
+
+/* Date Picker Global Overrides */
+.sx__date-picker-wrapper {
+  min-width: 160px;
+  background-color: white;
+  border-radius: 6px;
+  position: relative;
+  z-index: 20000 !important;
+
+  .sx__date-picker__input {
+    height: 44px;
+    padding: 20px 12px 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 0.95rem;
+    background-color: white;
+  }
+
+  .sx__date-picker__label {
+    top: 4px;
+    left: 12px;
+    font-size: 0.75rem;
+    color: #666;
+  }
 }

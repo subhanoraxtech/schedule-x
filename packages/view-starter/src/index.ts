@@ -1,1 +1,1 @@
-export { createView } from './create-view'
+export {createTeamDayView, createTeamWeekView} from './create-view'
